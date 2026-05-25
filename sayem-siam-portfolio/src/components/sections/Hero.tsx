@@ -1,29 +1,36 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowDown, FileText, GraduationCap, Mail } from "lucide-react"
-import { Button } from "@/src/components/ui"
-import { MagneticButton } from "@/src/components/ui"
-import { FloatingBadge } from "@/src/components/ui"
-import { StaggeredText } from "@/src/components/animations"
-import { siteConfig } from "@/src/config"
+import { motion } from "framer-motion";
+import { ArrowDown, FileText, GraduationCap, Mail } from "lucide-react";
+import { Button } from "@/src/components/ui";
+import { MagneticButton } from "@/src/components/ui";
+import { FloatingBadge } from "@/src/components/ui";
+import { StaggeredText } from "@/src/components/animations";
+import { siteConfig } from "@/src/config";
+import Image from "next/image";
 
 const techChips = [
-  "TypeScript", "Python", "Next.js", "React",
-  "NLP", "LLMs", "RAG", "Go",
-]
+  "TypeScript",
+  "Python",
+  "Next.js",
+  "React",
+  "NLP",
+  "LLMs",
+  "RAG",
+  "Go",
+];
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] border-b-2 border-black px-4 pb-16 pt-24 md:px-6 md:pt-32"
+      className="relative min-h-[60vh]  border-black px-4 pb-8 pt-24 md:px-6 md:pt-32"
     >
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
             <motion.p
-              className="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-500"
+              className="mb-4 text-sm font-semibold uppercase tracking-widest text-black-600"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -31,7 +38,7 @@ export function Hero() {
               Software Engineer & Researcher
             </motion.p>
 
-            <h1 className="text-4xl font-black leading-[0.9] tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-black leading-[0.9] tracking-tight md:text-6xl lg:text-6xl">
               <StaggeredText text={siteConfig.name} />
             </h1>
 
@@ -45,10 +52,7 @@ export function Hero() {
               <span className="font-semibold text-black">
                 software engineering
               </span>
-              ,{" "}
-              <span className="font-semibold text-black">
-                AI/ML research
-              </span>
+              , <span className="font-semibold text-black">AI/ML research</span>
               , and{" "}
               <span className="font-semibold text-black">
                 distributed systems
@@ -106,7 +110,14 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className="flex h-64 w-64 items-center justify-center border-3 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:h-80 md:w-80">
-              <span className="text-6xl font-black">SS</span>
+              {/* <span className="text-6xl font-black">SS</span> */}
+              <Image
+                src="/img/40853.webp"
+                alt="Profile"
+                width={300}
+                height={300}
+                className="rounded-lg"
+              />
             </div>
 
             {techChips.map((chip, i) => (
@@ -139,5 +150,5 @@ export function Hero() {
         <ArrowDown className="h-6 w-6" />
       </motion.a>
     </section>
-  )
+  );
 }

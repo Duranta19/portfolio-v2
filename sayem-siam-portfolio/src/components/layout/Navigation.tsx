@@ -1,33 +1,30 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { siteConfig } from "@/src/config"
-import { useReducedMotion } from "@/src/hooks"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { siteConfig } from "@/src/config";
+import { useReducedMotion } from "@/src/hooks";
 
 const navItems = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
   { label: "Publications", href: "#publications" },
   { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
-]
+];
 
 export function Navigation() {
-  const [open, setOpen] = useState(false)
-  const reduced = useReducedMotion()
+  const [open, setOpen] = useState(false);
+  const reduced = useReducedMotion();
 
   return (
     <header className="sticky top-0 z-50 border-b-2 border-black bg-white/80 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <a
-          href="#hero"
-          className="text-lg font-bold tracking-tight"
-        >
+        <a href="#hero" className="text-lg font-bold tracking-tight">
           {siteConfig.name}
         </a>
 
@@ -79,5 +76,5 @@ export function Navigation() {
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }

@@ -4,9 +4,7 @@ import "./globals.css"
 import { Navigation } from "@/src/components/layout/Navigation"
 import { Footer } from "@/src/components/layout/Footer"
 import { ScrollProgress } from "@/src/components/layout/ScrollProgress"
-import { GridOverlay } from "@/src/components/layout/GridOverlay"
-import { FloatingGradient } from "@/src/components/animations/FloatingGradient"
-import { CursorFollower } from "@/src/components/animations/CursorFollower"
+import { FancyBackground } from "@/src/components/animations/FancyBackground"
 import { siteConfig } from "@/src/config"
 
 const geistSans = Geist({
@@ -56,9 +54,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <ScrollProgress />
-        <GridOverlay />
-        <FloatingGradient />
-        <CursorFollower />
+        <FancyBackground />
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -8,7 +8,11 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
+}
+
+body {
+  scroll-behavior: smooth !important;
 }
 
 body {
