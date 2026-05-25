@@ -1,0 +1,41 @@
+import type { Skill } from "@/src/types"
+
+export const skills: Skill[] = [
+  { name: "TypeScript", category: "Languages", proficiency: 90 },
+  { name: "Python", category: "Languages", proficiency: 85 },
+  { name: "Go", category: "Languages", proficiency: 60 },
+  { name: "SQL", category: "Languages", proficiency: 75 },
+  { name: "JavaScript", category: "Languages", proficiency: 90 },
+  { name: "Next.js", category: "Frontend", proficiency: 90 },
+  { name: "React", category: "Frontend", proficiency: 90 },
+  { name: "Tailwind", category: "Frontend", proficiency: 85 },
+  { name: "shadcn/ui", category: "Frontend", proficiency: 85 },
+  { name: "Redux", category: "Frontend", proficiency: 75 },
+  { name: "Framer Motion", category: "Frontend", proficiency: 80 },
+  { name: "FastAPI", category: "Backend", proficiency: 80 },
+  { name: "Node.js", category: "Backend", proficiency: 85 },
+  { name: "Express", category: "Backend", proficiency: 85 },
+  { name: "PostgreSQL", category: "Backend", proficiency: 80 },
+  { name: "Redis", category: "Backend", proficiency: 65 },
+  { name: "GraphQL", category: "Backend", proficiency: 70 },
+  { name: "NLP", category: "AI/Research", proficiency: 80 },
+  { name: "RAG", category: "AI/Research", proficiency: 75 },
+  { name: "LLM Agents", category: "AI/Research", proficiency: 80 },
+  { name: "LangChain", category: "AI/Research", proficiency: 75 },
+  { name: "Vector Databases", category: "AI/Research", proficiency: 70 },
+  { name: "Embeddings", category: "AI/Research", proficiency: 75 },
+  { name: "Semantic Search", category: "AI/Research", proficiency: 75 },
+  { name: "Docker", category: "DevOps", proficiency: 80 },
+  { name: "GitHub Actions", category: "DevOps", proficiency: 75 },
+  { name: "Linux", category: "DevOps", proficiency: 80 },
+  { name: "AWS", category: "DevOps", proficiency: 65 },
+  { name: "CI/CD", category: "DevOps", proficiency: 75 },
+]
+
+export const skillCategories = [
+  "Languages",
+  "Frontend",
+  "Backend",
+  "AI/Research",
+  "DevOps",
+] as const
