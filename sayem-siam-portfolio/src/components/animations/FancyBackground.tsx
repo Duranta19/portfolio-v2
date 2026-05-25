@@ -1,145 +1,71 @@
-"use client";
+"use client"
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
-import { useReducedMotion } from "@/src/hooks";
+import { useReducedMotion } from "@/src/hooks"
 
-function GradientOrb({
-  size,
-  color,
-  initialX,
-  initialY,
-  duration,
-  delay = 0,
-}: {
-  size: number;
-  color: string;
-  initialX: string;
-  initialY: string;
-  duration: number;
-  delay?: number;
-}) {
-  return (
-    <motion.div
-      className="absolute rounded-full blur-3xl"
-      style={{
-        width: size,
-        height: size,
-        background: color,
-        left: initialX,
-        top: initialY,
-      }}
-      animate={{
-        x: [0, 120, -80, 60, -40, 0],
-        y: [0, -100, 90, -60, 80, 0],
-        scale: [1, 1.15, 0.9, 1.1, 1],
-        opacity: [0.15, 0.25, 0.18, 0.22, 0.15],
-      }}
-      transition={{
-        duration,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay,
-      }}
-    />
-  );
-}
-
-function DotGrid() {
-  const dots = [];
-  const cols = 30;
-  const rows = 20;
-
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
-      dots.push(
-        <motion.div
-          key={`${r}-${c}`}
-          className="absolute h-0.5 w-0.5 rounded-full bg-black/20"
-          style={{
-            left: `${(c / cols) * 100}%`,
-            top: `${(r / rows) * 100}%`,
-          }}
-          animate={{
-            opacity: [0.1, 0.4, 0.1],
-            scale: [1, 1.5, 1],
-          }}
-          transition={{
-            duration: 3 + ((r * c) % 4),
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: ((r + c) * 0.1) % 5,
-          }}
-        />,
-      );
-    }
-  }
-
-  return <div className="pointer-events-none absolute inset-0">{dots}</div>;
-}
-
-function MouseGradient() {
-  const ref = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const reduced = useReducedMotion();
-
-  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-
-  useEffect(() => {
-    if (reduced) return;
-    function handleMove(e: MouseEvent) {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-    }
-    window.addEventListener("mousemove", handleMove);
-    return () => window.removeEventListener("mousemove", handleMove);
-  }, [reduced, mouseX, mouseY]);
-
-  if (reduced) return null;
-
-  return (
-    <motion.div
-      ref={ref}
-      className="pointer-events-none fixed -z-10 h-[600px] w-[600px] rounded-full blur-[150px]"
-      style={{
-        background:
-          "radial-gradient(circle at center, rgba(59,130,246,0.08), transparent)",
-        x: useTransform(springX, (v) => v - 300),
-        y: useTransform(springY, (v) => v - 300),
-      }}
-    />
-  );
+function cssAnim(duration: number, delay: number, name: string) {
+  return {
+    animation: `${name} ${duration}s ease-in-out ${delay}s infinite`,
+  } as React.CSSProperties
 }
 
 export function FancyBackground() {
+  const reduced = useReducedMotion()
+
+  if (reduced) {
+    return (
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0,0,0,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,1) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <GradientOrb
-        size={700}
-        color="radial-gradient(circle at center, #3b82f6, transparent)"
-        initialX="15%"
-        initialY="-20%"
-        duration={25}
+      <div
+        className="absolute -left-[15%] -top-[20%] rounded-full opacity-15 blur-2xl will-change-transform"
+        style={{
+          width: 500,
+          height: 500,
+          background:
+            "radial-gradient(circle at center, #3b82f6, transparent)",
+          ...cssAnim(18, 0, "float-a"),
+        }}
       />
-      <GradientOrb
-        size={600}
-        color="radial-gradient(circle at center, #f97316, transparent)"
-        initialX="70%"
-        initialY="60%"
-        duration={30}
-        delay={2}
+      <div
+        className="absolute -bottom-[20%] -right-[10%] rounded-full opacity-15 blur-2xl will-change-transform"
+        style={{
+          width: 450,
+          height: 450,
+          background:
+            "radial-gradient(circle at center, #f97316, transparent)",
+          ...cssAnim(22, 3, "float-b"),
+        }}
       />
-      <GradientOrb
-        size={500}
-        color="radial-gradient(circle at center, #8b5cf6, transparent)"
-        initialX="50%"
-        initialY="30%"
-        duration={20}
-        delay={4}
+      <div
+        className="absolute left-1/2 top-1/3 rounded-full opacity-10 blur-2xl will-change-transform"
+        style={{
+          width: 350,
+          height: 350,
+          background:
+            "radial-gradient(circle at center, #8b5cf6, transparent)",
+          ...cssAnim(16, 6, "float-c"),
+        }}
       />
-      <DotGrid />
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(0,0,0,0.3) 0.5px, transparent 0.5px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
       <div
         className="absolute inset-0 opacity-[0.015]"
         style={{
@@ -148,7 +74,26 @@ export function FancyBackground() {
           backgroundSize: "80px 80px",
         }}
       />
-      <MouseGradient />
+      <style>{`
+        @keyframes float-a {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          25% { transform: translate(80px, -60px) scale(1.1); }
+          50% { transform: translate(-40px, 50px) scale(0.95); }
+          75% { transform: translate(50px, -30px) scale(1.05); }
+        }
+        @keyframes float-b {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          25% { transform: translate(-70px, 50px) scale(1.08); }
+          50% { transform: translate(60px, -40px) scale(0.92); }
+          75% { transform: translate(-30px, 60px) scale(1.03); }
+        }
+        @keyframes float-c {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          25% { transform: translate(50px, 40px) scale(1.05); }
+          50% { transform: translate(-60px, -50px) scale(0.95); }
+          75% { transform: translate(40px, -30px) scale(1.02); }
+        }
+      `}</style>
     </div>
-  );
+  )
 }
