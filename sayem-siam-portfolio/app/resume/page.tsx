@@ -1,20 +1,25 @@
-import type { Metadata } from "next"
-import { Download, ExternalLink } from "lucide-react"
-import { Button } from "@/src/components/ui"
-import { SectionHeading } from "@/src/components/ui"
-import { skills, education, experiences, metrics } from "@/src/data"
+import type { Metadata } from "next";
+import { Download } from "lucide-react";
+import { Button } from "@/src/components/ui";
+import { SectionHeading } from "@/src/components/ui";
+import { skills, education, experiences, metrics } from "@/src/data";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: "Professional resume of Sayem Siam — Software Engineer & Researcher.",
-}
+  description:
+    "Professional resume of Sayem Siam — Software Engineer & Researcher.",
+};
 
 export default function ResumePage() {
   return (
     <div className="px-4 py-20 md:px-6 md:py-28">
       <div className="mx-auto max-w-4xl">
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-          <SectionHeading title="Resume" subtitle="Software Engineer & Researcher" className="mb-0" />
+          <SectionHeading
+            title="Resume"
+            subtitle="Software Engineer & Researcher"
+            className="mb-0"
+          />
           <Button variant="primary" size="lg" asChild>
             <a href="/resume.pdf" download>
               <Download className="mr-2 h-4 w-4" />
@@ -30,11 +35,13 @@ export default function ResumePage() {
               {metrics.map((m) => (
                 <div
                   key={m.label}
-                  className="border-2 border-black bg-white p-4 text-center">
-                  <span className="text-2xl font-black">{m.value}{m.suffix}</span>
-                  <p className="mt-1 text-xs text-gray-600">
-                    {m.label}
-                  </p>
+                  className="border-2 border-black bg-white p-4 text-center"
+                >
+                  <span className="text-2xl font-black">
+                    {m.value}
+                    {m.suffix}
+                  </span>
+                  <p className="mt-1 text-xs text-gray-600">{m.label}</p>
                 </div>
               ))}
             </div>
@@ -43,7 +50,13 @@ export default function ResumePage() {
           <section>
             <h2 className="mb-6 text-2xl font-bold">Skills</h2>
             <div className="space-y-4">
-              {["Languages", "Frontend", "Backend", "AI/Research", "DevOps"].map((cat) => (
+              {[
+                "Languages",
+                "Frontend",
+                "Backend",
+                "AI/Research",
+                "DevOps",
+              ].map((cat) => (
                 <div key={cat}>
                   <h3 className="mb-2 text-sm font-semibold uppercase tracking-wider text-gray-500">
                     {cat}
@@ -54,7 +67,8 @@ export default function ResumePage() {
                       .map((s) => (
                         <span
                           key={s.name}
-                          className="border-2 border-black px-3 py-1 text-xs font-medium">
+                          className="border-2 border-black px-3 py-1 text-xs font-medium"
+                        >
                           {s.name}
                         </span>
                       ))}
@@ -70,7 +84,8 @@ export default function ResumePage() {
               {experiences.map((exp) => (
                 <div
                   key={exp.role + exp.organization}
-                  className="border-l-2 border-black pl-4">
+                  className="border-l-2 border-black pl-4"
+                >
                   <span className="text-xs font-semibold uppercase tracking-wider text-blue-500">
                     {exp.duration}
                   </span>
@@ -89,7 +104,8 @@ export default function ResumePage() {
                     {exp.technologies.map((t) => (
                       <span
                         key={t}
-                        className="border border-gray-300 px-2 py-0.5 text-xs">
+                        className="border border-gray-300 px-2 py-0.5 text-xs"
+                      >
                         {t}
                       </span>
                     ))}
@@ -103,9 +119,7 @@ export default function ResumePage() {
             <h2 className="mb-6 text-2xl font-bold">Education</h2>
             <div className="space-y-6">
               {education.map((edu) => (
-                <div
-                  key={edu.degree}
-                  className="border-l-2 border-black pl-4">
+                <div key={edu.degree} className="border-l-2 border-black pl-4">
                   <span className="text-xs font-semibold uppercase tracking-wider text-blue-500">
                     {edu.period}
                   </span>
@@ -123,5 +137,5 @@ export default function ResumePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

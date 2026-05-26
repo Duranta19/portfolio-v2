@@ -78,7 +78,7 @@ export function Hero() {
             >
               <MagneticButton>
                 <Button variant="primary" size="lg" asChild>
-                  <a href="/resume">
+                  <a href="">
                     <FileText className="mr-2 h-4 w-4" />
                     View Resume
                   </a>
@@ -109,14 +109,14 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="flex h-64 w-64 items-center justify-center border-3 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:h-80 md:w-80">
+            <div className="flex h-50 w-50 ml-10 items-center justify-center border-3 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:h-78 md:w-78">
               {/* <span className="text-6xl font-black">SS</span> */}
               <Image
                 src="/img/40853.webp"
                 alt="Profile"
                 width={300}
                 height={300}
-                className="rounded-lg"
+                className="rounded-lg h-45 w-45 object-cover md:h-70 md:w-70"
               />
             </div>
 
@@ -127,7 +127,7 @@ export function Hero() {
                 style={{
                   top: `${10 + i * 15}%`,
                   right: i % 2 === 0 ? "-60px" : "auto",
-                  left: i % 2 === 0 ? "auto" : "-60px",
+                  left: i % 2 === 0 ? "auto" : "-10px",
                 }}
               >
                 <FloatingBadge delay={i * 0.3}>
