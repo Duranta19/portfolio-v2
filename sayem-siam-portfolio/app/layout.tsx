@@ -4,6 +4,7 @@ import "./globals.css"
 import { Navigation } from "@/src/components/layout/Navigation"
 import { Footer } from "@/src/components/layout/Footer"
 import { ScrollProgress } from "@/src/components/layout/ScrollProgress"
+import { Loader } from "@/src/components/layout/Loader"
 import { FancyBackground } from "@/src/components/animations/FancyBackground"
 import { siteConfig } from "@/src/config"
 
@@ -53,6 +54,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <Loader />
         <ScrollProgress />
         <FancyBackground />
         <Navigation />
