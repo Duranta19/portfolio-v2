@@ -23,7 +23,7 @@ export function Navigation() {
   const reduced = useReducedMotion();
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-black bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b-2 border-black bg-[#f5d2a2] backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <a
           href="#hero"

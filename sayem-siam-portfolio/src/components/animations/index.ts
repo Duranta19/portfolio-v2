@@ -1,4 +1,6 @@
 export { AnimatedSection } from "./AnimatedSection"
+export { FancyBackground } from "./FancyBackground"
+export { FancyBackgroundV2 } from "./FancyBackgroundV2"
 export { FloatingGradient } from "./FloatingGradient"
 export { Marquee } from "./Marquee"
 export { StaggeredText } from "./StaggeredText"
