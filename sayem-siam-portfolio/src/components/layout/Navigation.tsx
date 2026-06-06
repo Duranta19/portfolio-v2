@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/src/config";
@@ -25,8 +26,8 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 border-b-2 border-black bg-[#f5d2a2] backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
-        <a
-          href="#hero"
+        <Link
+          href="/"
           className="flex shrink-0 items-center gap-2"
           aria-label={siteConfig.name}
         >
@@ -41,7 +42,7 @@ export function Navigation() {
           <span className="whitespace-nowrap text-lg font-bold tracking-tight">
             {siteConfig.name}
           </span>
-        </a>
+        </Link>
 
         <div className="hidden shrink-0 items-center gap-1 lg:flex">
           {navItems.map((item) => (

@@ -4,6 +4,7 @@ import { Contact } from "@/src/components/sections/Contact"
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with Sayem Siam for research collaboration or graduate opportunities.",
+  alternates: { canonical: "/contact" },
 }
 
 export default function ContactPage() {

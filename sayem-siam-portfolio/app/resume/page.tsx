@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Resume",
   description:
     "Professional resume of Sayem Siam — Software Engineer & Researcher.",
+  alternates: { canonical: "/resume" },
 };
 
 export default function ResumePage() {
