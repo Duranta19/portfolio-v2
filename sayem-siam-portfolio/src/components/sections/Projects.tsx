@@ -1,23 +1,40 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { ExternalLink, GitBranch } from "lucide-react"
 import { AnimatedSection } from "@/src/components/animations"
-import { SectionHeading, Card, CardHeader, CardTitle, CardContent, CardFooter, Badge } from "@/src/components/ui"
+import { SectionHeading, Card, CardHeader, CardTitle, CardContent, CardFooter, Badge, Pagination } from "@/src/components/ui"
 import { academicProjects } from "@/src/data"
 
+const PER_PAGE = 3
+
 export function Projects() {
+  const [page, setPage] = useState(1)
+
+  const totalPages = Math.ceil(academicProjects.length / PER_PAGE)
+  const start = (page - 1) * PER_PAGE
+  const visible = academicProjects.slice(start, start + PER_PAGE)
+
   return (
     <AnimatedSection>
       <section id="projects" className="border-b-2 border-black px-4 py-20 md:px-6 md:py-28">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
-            title="Academic Projects"
-            subtitle="Research-driven projects spanning AI systems, multi-agent architectures, and distributed computing."
+            title="Projects"
+            subtitle="Full-stack web applications spanning startup platforms, supply chain, and community tools."
           />
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {academicProjects.map((project, i) => (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={page}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            >
+              {visible.map((project, i) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -89,8 +106,16 @@ export function Projects() {
                   </CardFooter>
                 </Card>
               </motion.div>
-            ))}
-          </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={setPage}
+            className="mt-12"
+          />
         </div>
       </section>
     </AnimatedSection>

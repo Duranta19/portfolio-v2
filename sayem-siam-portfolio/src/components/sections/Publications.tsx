@@ -4,12 +4,15 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ExternalLink, Search } from "lucide-react"
 import { AnimatedSection } from "@/src/components/animations"
-import { SectionHeading, Badge, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/src/components/ui"
+import { SectionHeading, Badge, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Pagination } from "@/src/components/ui"
 import { publications } from "@/src/data"
+
+const PER_PAGE = 3
 
 export function Publications() {
   const [search, setSearch] = useState("")
   const [yearFilter, setYearFilter] = useState<number | null>(null)
+  const [page, setPage] = useState(1)
 
   const years = [...new Set(publications.map((p) => p.year))].sort((a, b) => b - a)
 
@@ -22,13 +25,27 @@ export function Publications() {
     return matchesSearch && matchesYear
   })
 
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE))
+  const visible = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE)
+
+  // Filter changes reset pagination to the first page.
+  function handleSearch(value: string) {
+    setSearch(value)
+    setPage(1)
+  }
+
+  function handleYearFilter(year: number | null) {
+    setYearFilter(year)
+    setPage(1)
+  }
+
   return (
     <AnimatedSection>
       <section id="publications" className="border-b-2 border-black px-4 py-20 md:px-6 md:py-28">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Publications"
-            subtitle="Peer-reviewed research in NLP, multi-agent systems, and distributed computing."
+            subtitle="Peer-reviewed research in deep learning, computer vision, and medical imaging."
           />
 
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -38,13 +55,13 @@ export function Publications() {
                 type="text"
                 placeholder="Search publications..."
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => handleSearch(e.target.value)}
                 className="w-full border-2 border-black py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div className="flex gap-2">
               <button
-                onClick={() => setYearFilter(null)}
+                onClick={() => handleYearFilter(null)}
                 className={`border-2 px-3 py-1.5 text-xs font-medium transition-colors ${
                   yearFilter === null
                     ? "border-black bg-black text-white "
@@ -56,7 +73,7 @@ export function Publications() {
               {years.map((year) => (
                 <button
                   key={year}
-                  onClick={() => setYearFilter(year)}
+                  onClick={() => handleYearFilter(year)}
                   className={`border-2 px-3 py-1.5 text-xs font-medium transition-colors ${
                     yearFilter === year
                       ? "border-black bg-black text-white "
@@ -71,7 +88,7 @@ export function Publications() {
 
           <AnimatePresence mode="popLayout">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((pub, i) => (
+              {visible.map((pub) => (
                 <motion.div
                   key={pub.title}
                   layout
@@ -109,7 +126,7 @@ export function Publications() {
                     </CardContent>
                     <CardFooter className="mt-auto flex items-center justify-between">
                       <span className="text-xs text-gray-500">
-                        {pub.citations} citations
+                        {pub.citations > 0 ? `${pub.citations} citations` : ""}
                       </span>
                       <div className="flex gap-2">
                         {pub.arxiv && (
@@ -139,6 +156,19 @@ export function Publications() {
               ))}
             </div>
           </AnimatePresence>
+
+          {filtered.length === 0 && (
+            <p className="py-12 text-center text-sm text-gray-500">
+              No publications match your search.
+            </p>
+          )}
+
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={setPage}
+            className="mt-12"
+          />
         </div>
       </section>
     </AnimatedSection>

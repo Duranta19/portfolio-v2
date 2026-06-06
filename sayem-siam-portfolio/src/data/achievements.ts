@@ -2,39 +2,34 @@ import type { Achievement } from "@/src/types"
 
 export const achievements: Achievement[] = [
   {
-    title: "Best Paper Award",
-    description: "ACL 2025 Workshop on Multi-Agent Systems",
+    title: "6 Research Publications",
+    description:
+      "Peer-reviewed papers published with IEEE, Elsevier, Wiley, and Springer in deep learning, computer vision, and medical imaging",
     year: 2025,
     icon: "award",
   },
   {
-    title: "Graduate Research Scholarship",
-    description: "Full scholarship for M.Sc. research in NLP",
+    title: "100% Academic Scholarship",
+    description: "Awarded for excellent academic performance across 3 trimesters at UIU",
     year: 2024,
     icon: "scholar",
   },
   {
-    title: "ACM ICPC Regional Finalist",
-    description: "Ranked in top 15% among 200+ teams",
+    title: "50% Academic Scholarship",
+    description: "Awarded for excellent academic performance across 3 trimesters at UIU",
     year: 2023,
+    icon: "scholar",
+  },
+  {
+    title: "25% Academic Scholarship",
+    description: "Awarded for excellent academic performance in 1 trimester at UIU",
+    year: 2022,
+    icon: "scholar",
+  },
+  {
+    title: "CGPA 3.74 / 4.00",
+    description: "B.Sc. in Computer Science & Engineering, United International University",
+    year: 2024,
     icon: "trophy",
-  },
-  {
-    title: "Open Source Contributor",
-    description: "Core contributor to LangChain, 500+ commits",
-    year: 2024,
-    icon: "git",
-  },
-  {
-    title: "Research Grant",
-    description: "University research grant for multi-agent systems",
-    year: 2025,
-    icon: "grant",
-  },
-  {
-    title: "AWS Certified Solutions Architect",
-    description: "AWS SAA-C03 Certification",
-    year: 2024,
-    icon: "cert",
   },
 ]

@@ -1,8 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
-import { Send, GitBranch, Link2, Mail, GraduationCap, FileDown } from "lucide-react"
+import { Send, GitBranch, Mail, Phone } from "lucide-react"
 import { AnimatedSection } from "@/src/components/animations"
 import { SectionHeading, Button } from "@/src/components/ui"
 import { MagneticButton } from "@/src/components/ui"
@@ -110,28 +109,10 @@ export function Contact() {
                   <span className="text-sm font-medium">GitHub</span>
                 </a>
                 <a
-                  href={siteConfig.links.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`tel:${siteConfig.links.phone}`}
                   className="group flex items-center gap-3 border-2 border-black bg-white p-4 transition-all hover:translate-x-1">
-                  <Link2 className="h-5 w-5 transition-colors group-hover:text-blue-500" />
-                  <span className="text-sm font-medium">LinkedIn</span>
-                </a>
-                <a
-                  href={siteConfig.links.scholar}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 border-2 border-black bg-white p-4 transition-all hover:translate-x-1">
-                  <GraduationCap className="h-5 w-5 transition-colors group-hover:text-blue-500" />
-                  <span className="text-sm font-medium">Google Scholar</span>
-                </a>
-                <a
-                  href={siteConfig.links.orcid}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 border-2 border-black bg-white p-4 transition-all hover:translate-x-1">
-                  <FileDown className="h-5 w-5 transition-colors group-hover:text-blue-500" />
-                  <span className="text-sm font-medium">ORCID</span>
+                  <Phone className="h-5 w-5 transition-colors group-hover:text-blue-500" />
+                  <span className="text-sm font-medium">{siteConfig.links.phone}</span>
                 </a>
               </div>
             </div>
