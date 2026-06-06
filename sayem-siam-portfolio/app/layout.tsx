@@ -59,7 +59,10 @@ export default function RootLayout({
         <FancyBackground />
         {/* <FancyBackgroundV2 /> */}
         <Navigation />
-        <main className="flex-1">{children}</main>
+        {/* overflow-x-clip contains decorative section overflow (e.g. Hero's
+            floating chips) so the page never scrolls horizontally. Applied
+            here rather than on html/body so the sticky <header> isn't broken. */}
+        <main className="flex-1 overflow-x-clip">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,18 +1,29 @@
-import { siteConfig } from "@/src/config"
-import { GitBranch, Mail, Phone } from "lucide-react"
+import { siteConfig } from "@/src/config";
+import { GitBranch, Mail, Phone } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t-2 border-black bg-black text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-6">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div>
-            <p className="text-lg font-bold">{siteConfig.name}</p>
-            <p className="mt-1 text-sm text-gray-400">
-              Software Engineer & Researcher
-            </p>
+          <div className="flex">
+            <Image
+              src="/img/logo.png"
+              alt={siteConfig.name}
+              width={200}
+              height={200}
+              priority
+              className="h-12 w-auto"
+            />
+            <div className="flex flex-col">
+              <p className="text-lg font-bold">{siteConfig.name}</p>
+              <p className="mt-1 text-sm text-gray-400">
+                Software Engineer & Researcher
+              </p>
+            </div>
           </div>
 
           <div className="flex items-center gap-4">
@@ -43,9 +54,11 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
-          <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
+          <p>
+            &copy; {currentYear} {siteConfig.name}. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

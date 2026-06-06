@@ -24,10 +24,10 @@ export function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 border-b-2 border-black bg-[#f5d2a2] backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
         <a
           href="#hero"
-          className="flex items-center gap-2"
+          className="flex shrink-0 items-center gap-2"
           aria-label={siteConfig.name}
         >
           <Image
@@ -38,24 +38,24 @@ export function Navigation() {
             priority
             className="h-10 w-auto"
           />
-          <a href="#hero" className="text-lg font-bold tracking-tight">
+          <span className="whitespace-nowrap text-lg font-bold tracking-tight">
             {siteConfig.name}
-          </a>
+          </span>
         </a>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden shrink-0 items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="px-3 py-2 text-sm font-medium transition-colors hover:text-amber-500"
+              className="whitespace-nowrap px-3 py-2 text-sm font-medium transition-colors hover:text-amber-500"
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={() => setOpen(!open)}
             className="flex h-10 w-10 items-center justify-center border-2 border-black"
@@ -69,7 +69,7 @@ export function Navigation() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="border-t-2 border-black bg-white md:hidden"
+            className="border-t-2 border-black bg-white lg:hidden"
             initial={reduced ? undefined : { height: 0, opacity: 0 }}
             animate={reduced ? undefined : { height: "auto", opacity: 1 }}
             exit={reduced ? undefined : { height: 0, opacity: 0 }}
