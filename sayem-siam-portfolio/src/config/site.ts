@@ -42,6 +42,7 @@ export const siteConfig = {
     email: "asiam201033@bscse.uiu.ac.bd",
     phone: "+8801884928033",
     location: "Dhaka, Bangladesh",
+    linkedin: "https://www.linkedin.com/in/abu-sayem-md-siam-3430581a2bd",
   },
 } as const;
 

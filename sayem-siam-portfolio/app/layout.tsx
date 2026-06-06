@@ -78,7 +78,7 @@ const personJsonLd = {
     addressCountry: "Bangladesh",
   },
   email: `mailto:${siteConfig.links.email}`,
-  sameAs: [siteConfig.links.github],
+  sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
   knowsAbout: [
     "Software Engineering",
     "Deep Learning",
