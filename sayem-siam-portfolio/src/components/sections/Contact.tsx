@@ -97,7 +97,7 @@ export function Contact() {
                 <a
                   href={`mailto:${siteConfig.links.email}`}
                   className="group flex items-center gap-3 border-2 border-black bg-white p-4 transition-all hover:translate-x-1">
-                  <Mail className="h-5 w-5 transition-colors group-hover:text-blue-500" />
+                  <Mail className="h-5 w-5 transition-colors group-hover:text-amber-500" />
                   <span className="text-sm font-medium">{siteConfig.links.email}</span>
                 </a>
                 <a
@@ -105,13 +105,13 @@ export function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3 border-2 border-black bg-white p-4 transition-all hover:translate-x-1">
-                  <GitBranch className="h-5 w-5 transition-colors group-hover:text-blue-500" />
+                  <GitBranch className="h-5 w-5 transition-colors group-hover:text-amber-500" />
                   <span className="text-sm font-medium">GitHub</span>
                 </a>
                 <a
                   href={`tel:${siteConfig.links.phone}`}
                   className="group flex items-center gap-3 border-2 border-black bg-white p-4 transition-all hover:translate-x-1">
-                  <Phone className="h-5 w-5 transition-colors group-hover:text-blue-500" />
+                  <Phone className="h-5 w-5 transition-colors group-hover:text-amber-500" />
                   <span className="text-sm font-medium">{siteConfig.links.phone}</span>
                 </a>
               </div>

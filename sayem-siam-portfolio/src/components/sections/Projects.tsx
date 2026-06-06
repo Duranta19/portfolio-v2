@@ -88,7 +88,7 @@ export function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-sm font-medium hover:text-blue-500"
+                        className="flex items-center gap-1 text-sm font-medium hover:text-amber-500"
                       >
                         <GitBranch className="h-4 w-4" /> Code
                       </a>
@@ -98,7 +98,7 @@ export function Projects() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-sm font-medium hover:text-blue-500"
+                        className="flex items-center gap-1 text-sm font-medium hover:text-amber-500"
                       >
                         <ExternalLink className="h-4 w-4" /> Demo
                       </a>

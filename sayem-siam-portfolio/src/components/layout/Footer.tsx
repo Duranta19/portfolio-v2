@@ -20,21 +20,21 @@ export function Footer() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-blue-400"
+              className="transition-colors hover:text-amber-400"
               aria-label="GitHub"
             >
               <GitBranch className="h-5 w-5" />
             </a>
             <a
               href={`mailto:${siteConfig.links.email}`}
-              className="transition-colors hover:text-blue-400"
+              className="transition-colors hover:text-amber-400"
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />
             </a>
             <a
               href={`tel:${siteConfig.links.phone}`}
-              className="transition-colors hover:text-blue-400"
+              className="transition-colors hover:text-amber-400"
               aria-label="Phone"
             >
               <Phone className="h-5 w-5" />

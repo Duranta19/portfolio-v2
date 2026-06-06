@@ -38,7 +38,12 @@ export function Loader() {
         rafRef.current = requestAnimationFrame(tick);
       } else {
         rafRef.current = null;
-        window.setTimeout(() => setDone(true), reduced ? 80 : 350);
+        window.setTimeout(() => {
+          // Restore scrolling before the overlay animates away — the component
+          // stays mounted, so this must happen here rather than on unmount.
+          document.body.style.overflow = previousOverflow;
+          setDone(true);
+        }, reduced ? 80 : 350);
       }
     };
 

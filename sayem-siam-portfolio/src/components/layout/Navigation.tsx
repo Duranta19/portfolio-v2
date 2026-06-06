@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { siteConfig } from "@/src/config";
@@ -24,8 +25,22 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 border-b-2 border-black bg-white/80 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <a href="#hero" className="text-lg font-bold tracking-tight">
-          {siteConfig.name}
+        <a
+          href="#hero"
+          className="flex items-center gap-2"
+          aria-label={siteConfig.name}
+        >
+          <Image
+            src="/img/logo.png"
+            alt={siteConfig.name}
+            width={44}
+            height={44}
+            priority
+            className="h-10 w-auto"
+          />
+          <a href="#hero" className="text-lg font-bold tracking-tight">
+            {siteConfig.name}
+          </a>
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -33,7 +48,7 @@ export function Navigation() {
             <a
               key={item.href}
               href={item.href}
-              className="px-3 py-2 text-sm font-medium transition-colors hover:text-blue-500"
+              className="px-3 py-2 text-sm font-medium transition-colors hover:text-amber-500"
             >
               {item.label}
             </a>
@@ -66,7 +81,7 @@ export function Navigation() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="px-3 py-3 text-sm font-medium transition-colors hover:text-blue-500"
+                  className="px-3 py-3 text-sm font-medium transition-colors hover:text-amber-500"
                 >
                   {item.label}
                 </a>
