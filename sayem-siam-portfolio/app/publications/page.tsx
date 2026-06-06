@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Publications",
   description:
     "Research publications in NLP, multi-agent systems, and distributed computing.",
+  alternates: { canonical: "/publications" },
 }
 
 export default function PublicationsPage() {

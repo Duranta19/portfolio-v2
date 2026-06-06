@@ -19,11 +19,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
@@ -40,7 +48,53 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+};
+
+// JSON-LD structured data — helps Google build a knowledge-panel entity for
+// your name and rank the site for personal-name searches.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  alternateName: ["Sayem Siam", "Abu Sayem"],
+  url: siteConfig.url,
+  image: `${siteConfig.url}/opengraph-image`,
+  jobTitle: siteConfig.jobTitle,
+  worksFor: {
+    "@type": "Organization",
+    name: "RoBenDevs",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Dhaka",
+    addressCountry: "Bangladesh",
+  },
+  email: `mailto:${siteConfig.links.email}`,
+  sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
+  knowsAbout: [
+    "Software Engineering",
+    "Deep Learning",
+    "Computer Vision",
+    "Microservices",
+    "Machine Learning",
+    "Distributed Systems",
+  ],
+  description: siteConfig.description,
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
 };
 
 export default function RootLayout({
@@ -54,6 +108,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col !bg-[#fff8ed] text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Loader />
         <ScrollProgress />
         <FancyBackground />
