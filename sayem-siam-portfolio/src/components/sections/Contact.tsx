@@ -7,13 +7,46 @@ import { SectionHeading, Button } from "@/src/components/ui"
 import { MagneticButton } from "@/src/components/ui"
 import { siteConfig } from "@/src/config"
 
-export function Contact() {
-  const [submitted, setSubmitted] = useState(false)
+type Status = "idle" | "submitting" | "success" | "error"
 
-  function handleSubmit(e: React.FormEvent) {
+export function Contact() {
+  const [status, setStatus] = useState<Status>("idle")
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+    if (status === "submitting") return
+
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      message: String(data.get("message") ?? ""),
+    }
+
+    setStatus("submitting")
+    setError(null)
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => null)
+        throw new Error(body?.error || "Something went wrong. Please try again.")
+      }
+
+      form.reset()
+      setStatus("success")
+      setTimeout(() => setStatus("idle"), 4000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+      setStatus("error")
+    }
   }
 
   return (
@@ -34,6 +67,7 @@ export function Contact() {
                   </label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
                     required
                     className="mt-1 w-full border-2 border-black bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -46,6 +80,7 @@ export function Contact() {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     required
                     className="mt-1 w-full border-2 border-black bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -58,6 +93,7 @@ export function Contact() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     required
                     className="mt-1 w-full border-2 border-black bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -70,8 +106,11 @@ export function Contact() {
                     variant="primary"
                     size="lg"
                     className="w-full md:w-auto"
+                    disabled={status === "submitting"}
                   >
-                    {submitted ? (
+                    {status === "submitting" ? (
+                      "Sending..."
+                    ) : status === "success" ? (
                       "Message Sent! ✓"
                     ) : (
                       <>
@@ -81,6 +120,17 @@ export function Contact() {
                     )}
                   </Button>
                 </MagneticButton>
+
+                {status === "success" && (
+                  <p className="text-sm font-medium text-green-700" role="status">
+                    Thanks! Your message has been sent — I&apos;ll get back to you soon.
+                  </p>
+                )}
+                {status === "error" && error && (
+                  <p className="text-sm font-medium text-red-700" role="alert">
+                    {error}
+                  </p>
+                )}
               </form>
             </div>
 
