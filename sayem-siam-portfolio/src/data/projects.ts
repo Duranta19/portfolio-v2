@@ -2,47 +2,59 @@ import type { AcademicProject } from "@/src/types"
 
 export const academicProjects: AcademicProject[] = [
   {
-    title: "Multi-Agent Research Assistant",
+    title: "VentureVest — Startup & Investor Platform",
     problem:
-      "Literature review in AI research is time-consuming. Researchers must search, filter, and synthesize information across hundreds of papers.",
+      "Early-stage startups struggle to showcase products, raise funds, and stay connected with potential investors in one place.",
     contribution:
-      "Designed a multi-agent system where specialized agents handle search, extraction, summarization, and cross-referencing, reducing review time by 60%.",
-    techStack: ["Python", "LangChain", "OpenAI", "Weaviate", "FastAPI"],
-    github: "https://github.com/sayemsiam/multi-agent-research",
-    demo: "https://research-assistant.demo.dev",
+      "Built a platform enabling startups to showcase products, run fundraising campaigns, and share monthly updates, with a built-in chat for direct startup–investor communication.",
+    techStack: ["Django", "SQLite", "HTML", "CSS", "Ajax", "Bootstrap"],
+    github: "https://github.com/Duranta19/VentureVest",
     metrics: [
-      "60% reduction in review time",
-      "92% citation accuracy",
-      "500+ papers processed",
+      "Built-in investor–startup chat",
+      "Monthly update sharing",
+      "Fundraising campaigns",
     ],
   },
   {
-    title: "Semantic Code Search Engine",
+    title: "UIU Helpline — Student Support & Knowledge Sharing",
     problem:
-      "Traditional keyword-based code search fails to capture semantic intent, making it hard to find relevant code snippets.",
+      "Students lack a centralized space to access academic resources and get help with their coursework.",
     contribution:
-      "Built a semantic code search engine using transformer-based embeddings and approximate nearest neighbor search for large codebases.",
-    techStack: ["TypeScript", "Python", "FastAPI", "pgvector", "OpenAI"],
-    github: "https://github.com/sayemsiam/semantic-code-search",
-    demo: "https://code-search.demo.dev",
+      "Developed a student support platform for uploading academic books and past evaluation questions, with a community discussion forum and a problem-solving section.",
+    techStack: ["PHP", "MySQL", "HTML", "CSS", "Bootstrap"],
+    github: "https://github.com/Duranta19/UIU-Helpline",
     metrics: [
-      "89% top-10 relevance",
-      "50ms avg. query latency",
-      "10M+ indexed snippets",
+      "Academic resource library",
+      "Community discussion forum",
+      "Problem-solving section",
     ],
   },
   {
-    title: "Distributed Task Scheduler",
+    title: "Roots — Product Supply Chain Management System",
     problem:
-      "Cloud-native workloads require efficient scheduling across heterogeneous resources with changing availability.",
+      "Farmers, distributors, and retailers operate in silos with little visibility into market and product pricing.",
     contribution:
-      "Developed a distributed scheduler using RL that dynamically allocates tasks across nodes while optimizing for latency and cost.",
-    techStack: ["Go", "Python", "Redis", "Docker", "Kubernetes"],
-    github: "https://github.com/sayemsiam/distributed-scheduler",
+      "Built a supply chain management system connecting farmers, distributors, and retailers, with live monitoring of current market and product prices.",
+    techStack: ["PHP", "MySQL", "HTML", "CSS", "Bootstrap", "Google Charts"],
+    github: "https://github.com/Duranta19/Root",
     metrics: [
-      "35% lower latency",
-      "22% cost reduction",
-      "99.9% uptime",
+      "Farmer–distributor–retailer linkage",
+      "Live market price monitoring",
+      "Visual analytics with Google Charts",
+    ],
+  },
+  {
+    title: "Alumni-Linked — Connecting Students & Alumni",
+    problem:
+      "Students have limited access to alumni networks for mentorship, job opportunities, and career guidance.",
+    contribution:
+      "Created a platform connecting students and alumni — featuring alumni profiles, job postings, a discussion forum, company reviews, job applications, and job-preparation resources.",
+    techStack: ["PHP", "MySQL", "HTML", "CSS", "Ajax", "Bootstrap"],
+    github: "https://github.com/Duranta19/ALUMNI_LINK",
+    metrics: [
+      "Alumni profiles & networking",
+      "Job postings & applications",
+      "Company reviews & job prep",
     ],
   },
 ]

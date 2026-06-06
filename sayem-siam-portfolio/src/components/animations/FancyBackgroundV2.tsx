@@ -8,7 +8,7 @@ function cssAnim(duration: number, delay: number, name: string) {
   } as React.CSSProperties;
 }
 
-export function FancyBackground() {
+export function FancyBackgroundV2() {
   const reduced = useReducedMotion();
 
   if (reduced) {

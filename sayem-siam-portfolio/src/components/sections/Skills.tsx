@@ -11,8 +11,8 @@ const categoryColors: Record<SkillCategory, string> = {
   Languages: "border-blue-500 bg-blue-50",
   Frontend: "border-orange-500 bg-orange-50",
   Backend: "border-green-500 bg-green-50",
-  "AI/Research": "border-purple-500 bg-purple-50",
-  DevOps: "border-red-500 bg-red-50",
+  "AI/ML": "border-purple-500 bg-purple-50",
+  "Tools & Data": "border-red-500 bg-red-50",
 }
 
 function SkillPill({ name, proficiency }: { name: string; proficiency: number }) {

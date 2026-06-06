@@ -10,14 +10,14 @@ import { siteConfig } from "@/src/config";
 import Image from "next/image";
 
 const techChips = [
-  "TypeScript",
   "Python",
-  "Next.js",
+  "Node.js",
   "React",
-  "NLP",
-  "LLMs",
-  "RAG",
-  "Go",
+  "Machine Learning",
+  "Deep Learning",
+  "TensorFlow",
+  "PyTorch",
+  "SQL",
 ];
 
 export function Hero() {
@@ -48,14 +48,14 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Building intelligent systems at the intersection of{" "}
+              Building scalable systems at the intersection of{" "}
               <span className="font-semibold text-black">
                 software engineering
               </span>
               , <span className="font-semibold text-black">AI/ML research</span>
               , and{" "}
               <span className="font-semibold text-black">
-                distributed systems
+                data-driven solutions
               </span>
               .
             </motion.p>
@@ -78,7 +78,7 @@ export function Hero() {
             >
               <MagneticButton>
                 <Button variant="primary" size="lg" asChild>
-                  <a href="">
+                  <a href={siteConfig.resume} target="_blank" rel="noopener noreferrer">
                     <FileText className="mr-2 h-4 w-4" />
                     View Resume
                   </a>
@@ -109,14 +109,14 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="flex h-50 w-50 ml-10 items-center justify-center border-3 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:h-78 md:w-78">
+            <div className="flex h-50 w-50 ml-10 items-center justify-center border-3 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:h-90 md:w-90">
               {/* <span className="text-6xl font-black">SS</span> */}
               <Image
                 src="/img/40853.webp"
                 alt="Profile"
-                width={300}
-                height={300}
-                className="rounded-lg h-45 w-45 object-cover md:h-70 md:w-70"
+                width={340}
+                height={340}
+                className="rounded-lg h-45 w-45 object-cover md:h-80 md:w-80"
               />
             </div>
 

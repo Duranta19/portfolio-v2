@@ -14,8 +14,8 @@ export type SkillCategory =
   | "Languages"
   | "Frontend"
   | "Backend"
-  | "AI/Research"
-  | "DevOps"
+  | "AI/ML"
+  | "Tools & Data"
 
 export interface Education {
   degree: string

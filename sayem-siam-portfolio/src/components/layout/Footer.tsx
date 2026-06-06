@@ -1,5 +1,5 @@
 import { siteConfig } from "@/src/config"
-import { GitBranch, Link2, Mail, GraduationCap } from "lucide-react"
+import { GitBranch, Mail, Phone } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -20,35 +20,24 @@ export function Footer() {
               href={siteConfig.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-blue-400"
+              className="transition-colors hover:text-amber-400"
               aria-label="GitHub"
             >
               <GitBranch className="h-5 w-5" />
             </a>
             <a
-              href={siteConfig.links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-blue-400"
-              aria-label="LinkedIn"
-            >
-              <Link2 className="h-5 w-5" />
-            </a>
-            <a
               href={`mailto:${siteConfig.links.email}`}
-              className="transition-colors hover:text-blue-400"
+              className="transition-colors hover:text-amber-400"
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />
             </a>
             <a
-              href={siteConfig.links.scholar}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-blue-400"
-              aria-label="Google Scholar"
+              href={`tel:${siteConfig.links.phone}`}
+              className="transition-colors hover:text-amber-400"
+              aria-label="Phone"
             >
-              <GraduationCap className="h-5 w-5" />
+              <Phone className="h-5 w-5" />
             </a>
           </div>
         </div>

@@ -58,28 +58,34 @@ export function About() {
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="About Me"
-            subtitle="Software engineer turned researcher, building at the intersection of systems and intelligence."
+            subtitle="Software engineer building scalable, data-driven systems — with a research background in machine learning."
           />
 
           <div className="grid gap-12 md:grid-cols-2">
             <div className="space-y-4 text-base leading-relaxed text-gray-700 md:text-lg">
               <p>
-                I am a software engineer and researcher with a deep passion for
-                building systems that bridge the gap between cutting-edge AI
-                research and practical engineering.
+                I am a <strong>Software Engineer</strong> with hands-on
+                experience developing scalable{" "}
+                <strong>microservice web applications</strong>,{" "}
+                <strong>SaaS platforms</strong>, and{" "}
+                <strong>data-driven solutions</strong>. At{" "}
+                <strong>RoBenDevs</strong>, I&apos;ve contributed to building
+                microservice-based CRM systems, designing robust backends, and
+                integrating third-party tools to enhance business performance.
               </p>
               <p>
-                My research focuses on <strong>NLP</strong>,{" "}
-                <strong>multi-agent systems</strong>, and{" "}
-                <strong>distributed computing</strong>. I explore how large
-                language models can be composed into reliable, scalable agentic
-                systems that tackle complex real-world tasks.
+                I enjoy tackling complex problems — from optimizing{" "}
+                <strong>ETL pipelines</strong> to automating workflows that
+                streamline operations. I focus on writing clean, maintainable
+                code while collaborating with cross-functional teams to deliver
+                reliable, high-quality software.
               </p>
               <p>
-                With a strong foundation in distributed systems and full-stack
-                engineering, I bring a systems-thinking approach to AI research
-                — building not just models, but robust, production-ready
-                systems.
+                Passionate about learning and growth, I am eager to keep
+                expanding my expertise in <strong>data science</strong> —
+                deepening my knowledge in machine learning, statistical
+                modeling, and big data technologies to build innovative,
+                user-focused data solutions.
               </p>
             </div>
 
