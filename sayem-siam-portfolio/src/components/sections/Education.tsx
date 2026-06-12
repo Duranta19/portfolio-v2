@@ -1,26 +1,29 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { AnimatedSection } from "@/src/components/animations"
-import { SectionHeading } from "@/src/components/ui"
-import { education } from "@/src/data"
-import { useReducedMotion } from "@/src/hooks"
-import { BookOpen } from "lucide-react"
+import { motion } from "framer-motion";
+import { AnimatedSection } from "@/src/components/animations";
+import { SectionHeading } from "@/src/components/ui";
+import { education } from "@/src/data";
+import { useReducedMotion } from "@/src/hooks";
+import { BookOpen } from "lucide-react";
 
 function TimelineDot() {
   return (
     <div className="absolute left-0 top-1 flex h-4 w-4 items-center justify-center">
       <div className="h-3 w-3 rotate-45 border-2 border-black bg-white" />
     </div>
-  )
+  );
 }
 
 export function Education() {
-  const reduced = useReducedMotion()
+  const reduced = useReducedMotion();
 
   return (
     <AnimatedSection>
-      <section id="education" className="border-b-2 border-black px-4 py-20 md:px-6 md:py-28">
+      <section
+        id="education"
+        className="border-b-2 border-black px-4 py-20 md:px-6 md:py-28"
+      >
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Education"
@@ -40,7 +43,7 @@ export function Education() {
                 <TimelineDot />
 
                 <div className="border-2 border-black bg-white p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-blue-500">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-amber-500">
                     {edu.period}
                   </span>
                   <h3 className="mt-1 text-xl font-bold">{edu.degree}</h3>
@@ -73,5 +76,5 @@ export function Education() {
         </div>
       </section>
     </AnimatedSection>
-  )
+  );
 }

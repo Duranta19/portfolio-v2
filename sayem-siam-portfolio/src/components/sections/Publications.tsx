@@ -1,52 +1,80 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ExternalLink, Search } from "lucide-react"
-import { AnimatedSection } from "@/src/components/animations"
-import { SectionHeading, Badge, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Pagination } from "@/src/components/ui"
-import { publications } from "@/src/data"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Search } from "lucide-react";
+import { AnimatedSection } from "@/src/components/animations";
+import {
+  SectionHeading,
+  Badge,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  Pagination,
+} from "@/src/components/ui";
+import { publications } from "@/src/data";
 
-const PER_PAGE = 3
+const PER_PAGE = 3;
 
 export function Publications() {
-  const [search, setSearch] = useState("")
-  const [yearFilter, setYearFilter] = useState<number | null>(null)
-  const [page, setPage] = useState(1)
+  const [search, setSearch] = useState("");
+  const [yearFilter, setYearFilter] = useState<number | null>(null);
+  const [page, setPage] = useState(1);
 
-  const years = [...new Set(publications.map((p) => p.year))].sort((a, b) => b - a)
+  const years = [...new Set(publications.map((p) => p.year))].sort(
+    (a, b) => b - a,
+  );
 
   const filtered = publications.filter((pub) => {
     const matchesSearch =
       pub.title.toLowerCase().includes(search.toLowerCase()) ||
       pub.abstract.toLowerCase().includes(search.toLowerCase()) ||
-      pub.tags.some((t) => t.toLowerCase().includes(search.toLowerCase()))
-    const matchesYear = yearFilter ? pub.year === yearFilter : true
-    return matchesSearch && matchesYear
-  })
+      pub.tags.some((t) => t.toLowerCase().includes(search.toLowerCase()));
+    const matchesYear = yearFilter ? pub.year === yearFilter : true;
+    return matchesSearch && matchesYear;
+  });
 
-  const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE))
-  const visible = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE)
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+  const visible = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
 
   // Filter changes reset pagination to the first page.
   function handleSearch(value: string) {
-    setSearch(value)
-    setPage(1)
+    setSearch(value);
+    setPage(1);
   }
 
   function handleYearFilter(year: number | null) {
-    setYearFilter(year)
-    setPage(1)
+    setYearFilter(year);
+    setPage(1);
   }
 
   return (
     <AnimatedSection>
-      <section id="publications" className="border-b-2 border-black px-4 py-20 md:px-6 md:py-28">
+      <section
+        id="publications"
+        className="border-b-2 border-black px-4 py-20 md:px-6 md:py-28"
+      >
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Publications"
             subtitle="Peer-reviewed research in deep learning, computer vision, and medical imaging."
           />
+
+          {/* <div className="mb-8 flex justify-center md:justify-start">
+            <a
+              href={siteConfig.links.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border-2 border-black bg-white px-4 py-2 text-sm font-medium transition-all hover:translate-x-1 hover:text-amber-500"
+            >
+              <GraduationCap className="h-4 w-4" />
+              View full profile on Google Scholar
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </div> */}
 
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="relative max-w-md">
@@ -78,7 +106,7 @@ export function Publications() {
                     yearFilter === year
                       ? "border-black bg-black text-white "
                       : "border-black bg-white text-black "
-                   }`}
+                  }`}
                 >
                   {year}
                 </button>
@@ -101,9 +129,16 @@ export function Publications() {
                     <CardHeader>
                       <div className="flex items-start justify-between gap-2">
                         <CardTitle className="text-base leading-snug">
-                          {pub.title}
+                          <a
+                            href={pub.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-colors hover:text-amber-600"
+                          >
+                            {pub.title}
+                          </a>
                         </CardTitle>
-                        <span className="shrink-0 text-xs font-semibold text-blue-500">
+                        <span className="shrink-0 text-xs font-semibold text-amber-500">
                           {pub.year}
                         </span>
                       </div>
@@ -134,7 +169,7 @@ export function Publications() {
                             href={pub.arxiv}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs font-medium text-blue-500 hover:underline"
+                            className="flex items-center gap-1 text-xs font-medium text-amber-500 hover:underline"
                           >
                             arXiv <ExternalLink className="h-3 w-3" />
                           </a>
@@ -144,7 +179,7 @@ export function Publications() {
                             href={`https://doi.org/${pub.doi}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs font-medium text-blue-500 hover:underline"
+                            className="flex items-center gap-1 text-xs font-medium text-amber-500 hover:underline"
                           >
                             DOI <ExternalLink className="h-3 w-3" />
                           </a>
@@ -172,5 +207,5 @@ export function Publications() {
         </div>
       </section>
     </AnimatedSection>
-  )
+  );
 }

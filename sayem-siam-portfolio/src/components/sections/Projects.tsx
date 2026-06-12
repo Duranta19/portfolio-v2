@@ -45,7 +45,16 @@ export function Projects() {
               >
                 <Card className="flex h-full flex-col">
                   <CardHeader>
-                    <CardTitle className="text-lg">{project.title}</CardTitle>
+                    <CardTitle className="text-lg">
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="transition-colors hover:text-amber-500"
+                      >
+                        {project.title}
+                      </a>
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-1 space-y-4">
                     <div>

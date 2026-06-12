@@ -1,5 +1,5 @@
 import { siteConfig } from "@/src/config";
-import { GitBranch, Mail, Phone } from "lucide-react";
+import { GitBranch, Mail, Phone, GraduationCap } from "lucide-react";
 import Image from "next/image";
 
 export function Footer() {
@@ -35,6 +35,15 @@ export function Footer() {
               aria-label="GitHub"
             >
               <GitBranch className="h-5 w-5" />
+            </a>
+            <a
+              href={siteConfig.links.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-amber-400"
+              aria-label="Google Scholar"
+            >
+              <GraduationCap className="h-5 w-5" />
             </a>
             <a
               href={`mailto:${siteConfig.links.email}`}
