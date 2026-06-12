@@ -63,6 +63,19 @@ export function Publications() {
             subtitle="Peer-reviewed research in deep learning, computer vision, and medical imaging."
           />
 
+          {/* <div className="mb-8 flex justify-center md:justify-start">
+            <a
+              href={siteConfig.links.scholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border-2 border-black bg-white px-4 py-2 text-sm font-medium transition-all hover:translate-x-1 hover:text-amber-500"
+            >
+              <GraduationCap className="h-4 w-4" />
+              View full profile on Google Scholar
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          </div> */}
+
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="relative max-w-md">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />

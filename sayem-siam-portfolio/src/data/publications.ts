@@ -24,7 +24,7 @@ export const publications: Publication[] = [
       "Explainable AI",
       "Medical Imaging",
     ],
-    citations: 0,
+    citations: 3,
     url: "https://www.sciencedirect.com/science/article/abs/pii/S1746809425012303",
   },
   {
@@ -45,7 +45,7 @@ export const publications: Publication[] = [
     abstract:
       "A blockchain-based framework for secure medical image sharing emphasizing data integrity and privacy. It combines JPEG compression with deep neural network-based subject-sensitive hashing (SSH) to preserve diagnostic quality, then encrypts and stores data on IPFS, with smart contracts validating access requests. Experimental validation across multiple datasets yields a 98% average correctness rate.",
     tags: ["Blockchain", "Subject-Sensitive Hashing", "Privacy", "IPFS"],
-    citations: 0,
+    citations: 4,
     url: "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/blc2.70009",
   },
   {
@@ -66,7 +66,7 @@ export const publications: Publication[] = [
     abstract:
       "This study develops ARS-CNNSA, a deep learning model for identifying arsenic-related and common skin diseases using a custom dataset. Integrating Conv2D layers and self-attention mechanisms, ARS-CNNSA excelled with 91% accuracy and a 90% F1-score, outperforming pre-trained models such as VGG16, MobileNetV2, and InceptionV3, advancing diagnostic precision in arsenic-prone areas.",
     tags: ["Deep Learning", "Computer Vision", "Self-Attention", "Dermatology"],
-    citations: 0,
+    citations: 2,
     url: "https://ieeexplore.ieee.org/abstract/document/11021807",
   },
   {
@@ -89,7 +89,7 @@ export const publications: Publication[] = [
       "Squeeze-and-Excitation",
       "Agriculture",
     ],
-    citations: 0,
+    citations: 10,
     url: "https://ieeexplore.ieee.org/abstract/document/10497322",
   },
   {
@@ -113,7 +113,7 @@ export const publications: Publication[] = [
       "Computer Vision",
       "OCT Imaging",
     ],
-    citations: 0,
+    citations: 7,
     url: "https://ieeexplore.ieee.org/abstract/document/10441457",
   },
   {
@@ -132,7 +132,7 @@ export const publications: Publication[] = [
     abstract:
       "A deep learning model for classifying Bangla news articles using a hybrid Recurrent Neural Network combining Bi-directional LSTM and Bi-directional GRU. Benchmarked against traditional machine learning techniques such as naïve Bayes and decision trees, the deep learning models achieved nearly 90% accuracy.",
     tags: ["NLP", "Deep Learning", "BiLSTM", "Text Classification"],
-    citations: 0,
+    citations: 4,
     url: "https://link.springer.com/chapter/10.1007/978-981-99-7649-2_12",
   },
 ];

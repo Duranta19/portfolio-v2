@@ -39,10 +39,11 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/Duranta19",
-    email: "asiam201033@bscse.uiu.ac.bd",
+    email: "abusayemsiamofficial@gmail.com",
     phone: "+8801884928033",
     location: "Dhaka, Bangladesh",
     linkedin: "https://www.linkedin.com/in/abu-sayem-md-siam-3430581a2bd",
+    scholar: "https://scholar.google.com/citations?user=fw8NR0YAAAAJ&hl=en",
   },
 } as const;
 
