@@ -1,10 +1,17 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Award, BookOpen, Trophy, GitBranch, Landmark, BadgeCheck } from "lucide-react"
-import { AnimatedSection } from "@/src/components/animations"
-import { SectionHeading } from "@/src/components/ui"
-import { achievements } from "@/src/data"
+import { motion } from "framer-motion";
+import {
+  Award,
+  BookOpen,
+  Trophy,
+  GitBranch,
+  Landmark,
+  BadgeCheck,
+} from "lucide-react";
+import { AnimatedSection } from "@/src/components/animations";
+import { SectionHeading } from "@/src/components/ui";
+import { achievements } from "@/src/data";
 
 const iconMap: Record<string, React.ReactNode> = {
   award: <Award className="h-5 w-5" />,
@@ -13,12 +20,15 @@ const iconMap: Record<string, React.ReactNode> = {
   git: <GitBranch className="h-5 w-5" />,
   grant: <Landmark className="h-5 w-5" />,
   cert: <BadgeCheck className="h-5 w-5" />,
-}
+};
 
 export function Achievements() {
   return (
     <AnimatedSection>
-      <section id="achievements" className="border-b-2 border-black px-4 py-20 md:px-6 md:py-28">
+      <section
+        id="achievements"
+        className="border-b-2 border-black px-4 py-20 md:px-6 md:py-28"
+      >
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             title="Achievements"
@@ -43,7 +53,7 @@ export function Achievements() {
                   <p className="mt-1 text-xs text-gray-600">
                     {achievement.description}
                   </p>
-                  <span className="mt-1 inline-block text-xs font-semibold text-blue-500">
+                  <span className="mt-1 inline-block text-xs font-semibold text-amber-500">
                     {achievement.year}
                   </span>
                 </div>
@@ -53,5 +63,5 @@ export function Achievements() {
         </div>
       </section>
     </AnimatedSection>
-  )
+  );
 }

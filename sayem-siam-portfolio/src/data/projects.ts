@@ -1,4 +1,4 @@
-import type { AcademicProject } from "@/src/types"
+import type { AcademicProject } from "@/src/types";
 
 export const academicProjects: AcademicProject[] = [
   {
@@ -14,6 +14,7 @@ export const academicProjects: AcademicProject[] = [
       "Monthly update sharing",
       "Fundraising campaigns",
     ],
+    url: "https://github.com/Duranta19/VentureVest",
   },
   {
     title: "UIU Helpline — Student Support & Knowledge Sharing",
@@ -28,6 +29,7 @@ export const academicProjects: AcademicProject[] = [
       "Community discussion forum",
       "Problem-solving section",
     ],
+    url: "https://github.com/Duranta19/UIU-Helpline",
   },
   {
     title: "Roots — Product Supply Chain Management System",
@@ -42,6 +44,7 @@ export const academicProjects: AcademicProject[] = [
       "Live market price monitoring",
       "Visual analytics with Google Charts",
     ],
+    url: "https://github.com/Duranta19/Root",
   },
   {
     title: "Alumni-Linked — Connecting Students & Alumni",
@@ -56,5 +59,6 @@ export const academicProjects: AcademicProject[] = [
       "Job postings & applications",
       "Company reviews & job prep",
     ],
+    url: "https://github.com/Duranta19/ALUMNI_LINK",
   },
-]
+];

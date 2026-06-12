@@ -87,7 +87,7 @@ export default function ResumePage() {
                   key={exp.role + exp.organization}
                   className="border-l-2 border-black pl-4"
                 >
-                  <span className="text-xs font-semibold uppercase tracking-wider text-blue-500">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-amber-500">
                     {exp.duration}
                   </span>
                   <h3 className="text-lg font-bold">{exp.role}</h3>
@@ -121,7 +121,7 @@ export default function ResumePage() {
             <div className="space-y-6">
               {education.map((edu) => (
                 <div key={edu.degree} className="border-l-2 border-black pl-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-blue-500">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-amber-500">
                     {edu.period}
                   </span>
                   <h3 className="text-lg font-bold">{edu.degree}</h3>

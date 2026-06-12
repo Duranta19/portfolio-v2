@@ -5,7 +5,7 @@ const rawSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "https://sayemsiam.dev");
+    : "https://sayemsiam.com");
 
 // Normalize: strip any trailing slash so we never produce "...app//sitemap.xml".
 const siteUrl = rawSiteUrl.replace(/\/+$/, "");
